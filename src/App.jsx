@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Item from './ItemList';
+import Input from './Input';
 import './App.scss';
 
 function App() {
@@ -9,10 +10,15 @@ function App() {
     ]);
 
     const deleteItem = (id) => setItems(items.filter((item) => item.id !== id));
+    const addItem = (item) => {
+        console.log('Item', item);
+        setItems([...items, item])
+    };
 
     return (
         <>
             <Item entries={items} deleteItem={deleteItem} />
+            <Input addItem={addItem} />
         </>
     );
 }
